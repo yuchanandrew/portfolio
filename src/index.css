@@ -1,0 +1,310 @@
+@font-face {
+    font-family: Jost;
+    src: url("../public/Jost-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: JetBrains Mono;
+    src: url("../public/JetBrainsMono-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Lexend;
+    src: url("../public/Lexend-VariableFont_wght.ttf");
+}
+
+@import "tailwindcss";
+
+body {
+    background: linear-gradient(45deg, var(--color-emerald-300), var(--color-emerald-200));
+    font-family: Lexend, serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Splash intro!! */
+.photo-wrapper {
+    @apply relative max-w-[50vw] max-h-[50vw] md:max-w-[25vw] md:max-h-[25vw] lg:max-w-[10vw] lg:max-h-[10vw] aspect-square z-1;
+}
+
+.photo-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, var(--color-green-300), var(--color-emerald-400), var(--color-sky-300));
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    width: calc(100%);
+    height: calc(100%);
+    opacity: 1;
+    animation:
+        wrapper-ping 2s 3,
+        disappear 2s 6s
+        forwards;
+}
+
+@keyframes wrapper-ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes scale-photo {
+    75%, 85% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes implode {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.2);
+    }
+    30%, 100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes disappear {
+    0%, 100% {
+        opacity: 0;
+    }
+}
+
+.about-photo {
+    border-radius: 50%;
+    aspect-ratio: square;
+    z-index: 10;
+    animation:
+        scale-photo 2s 3,
+        implode 2s 1 6s
+        forwards;
+    transition: all ease-in-out;
+    filter: saturate(1.1);
+}
+
+/* Post Intro */
+.thick-card {
+    @apply bg-slate-200 relative w-9/10 py-8 rounded-xl shadow-xl border-2 border-slate-500;
+    animation: slide-up 1s ease-in-out;
+}
+
+.name-line {
+    position: relative;
+    background: linear-gradient(to right, var(--color-emerald-300), var(--color-sky-500));
+    right: -10px;
+    width: 170px;
+    height: 5px;
+    border-radius: 99px;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    90% {
+        transform: translateY(-2vh);
+        opacity: 0.9;
+    }    
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.glowing-wrapper {
+    @apply relative max-w-[50vw] max-h-[50vw] md:max-w-[25vw] md:max-h-[25vw] lg:max-w-[20vw] lg:max-h-[20vw] aspect-square z-1;
+}
+
+.glowing-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--color-green-500), var(--color-blue-500), var(--color-purple-500), var(--color-blue-500), var(--color-green-500));
+    background-repeat: repeat;
+    background-size: 600% 600%;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    animation: glowing 5s linear infinite;
+    filter: blur(8px);
+    transform: scale(1.08);
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 120% 0;
+    }
+}
+
+.home-picture {
+    @apply relative rounded-full aspect-square;
+}
+
+/* Skills Section */
+.card-stack {
+    position: relative;
+    display: flex;
+    width: 30vw;
+    height: 30vw;
+}
+
+.card {
+    /* width: calc(100% - 48px);
+    height: calc(100% - 24px); */
+    @apply absolute w-full bg-slate-300 rounded-xl justify-center items-center py-4 shadow-xl border-2 border-slate-400;
+}
+
+.card:nth-child(1) {
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.card:nth-child(2) {
+    bottom: 6px;
+    right: 12px;
+    z-index: 4;
+}
+
+.card:nth-child(3) {
+    bottom: 12px;
+    right: 24px;
+    z-index: 3;
+}
+
+.card:nth-child(4) {
+    bottom: 18px;
+    right: 36px;
+    z-index: 2;
+}
+
+.card:nth-child(5) {
+    bottom: 24px;
+    right: 48px;
+    z-index: 1;
+}
+
+/* Profile */
+.frame {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.portrait {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.polygon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-emerald-700);
+    width: 70%;
+    height: 100%;
+    z-index: 0;
+    clip-path: polygon(30% 30%, 80% 30%, 100% 100%, 0% 100%);
+}
+
+.triangle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 23vh;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    background: linear-gradient(to right, var(--color-emerald-300), var(--color-emerald-700));
+    /* background: linear-gradient(45deg, var(--color-emerald-800), var(--color-emerald-600), var(--color-emerald-500), var(--color-emerald-600), var(--color-emerald-800)); */
+    z-index: 2;
+}
+
+.transition-rect {
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--color-emerald-300), var(--color-emerald-700));
+    z-index: 0;
+}
+
+.reverse-triangle {
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 23vh;
+    clip-path: polygon(0 100%, 100% 0%, 0% 0%);
+    background: linear-gradient(to right, var(--color-emerald-300), var(--color-emerald-700));
+    /* background: linear-gradient(45deg, var(--color-emerald-800), var(--color-emerald-600), var(--color-emerald-500), var(--color-emerald-600), var(--color-emerald-800)); */
+    z-index: 0;
+}
+
+
+/* Typing Animation */
+.type-frame {
+    position: relative;
+    background-color: transparent;
+    height: 10vh;
+    padding-left: 0px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @apply rounded-xl;
+}
+
+.text-box {
+    font-family: monospace;
+    /* background-color: white; */
+    font-size: 2rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid black;
+    width: 0ch;
+    z-index: 10;
+    animation: blink 0.7s step-end infinite;
+}
+
+.typing {
+    animation: typing 4s steps(var(--ch)) infinite forwards;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    40% {
+        width: calc(var(--ch) * 1ch);
+    }
+    60% {
+        width: calc(var(--ch) * 1ch);
+    }
+    100% {
+        width: 0;
+    }
+}
