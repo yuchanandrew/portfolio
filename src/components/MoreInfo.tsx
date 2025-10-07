@@ -96,13 +96,13 @@ const MoreInfo = () => {
       id: 1,
       type: "text",
       content: "Not impressed yet?",
-      class: "text-5xl font-medium",
+      class: "text-5xl text-center font-medium",
     },
     {
       id: 2,
       type: "text",
       content: "No worries, I got more to show you 🙂",
-      class: "text-3xl text-slate-700 font-medium",
+      class: "text-3xl text-center text-slate-700 font-medium",
     },
     {
       id: 3,
@@ -126,7 +126,7 @@ const MoreInfo = () => {
           </h2>
           <div
             id="additional-skills"
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[80vw] justify-center items-center"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[80vw] justify-center items-center"
           >
             {cards.map((card) => (
               <motion.div
@@ -159,7 +159,7 @@ const MoreInfo = () => {
           {current && (
             <div
               style={{ background: cards[current - 1].style }}
-              className="flex flex-col w-full h-[20vh] mt-4 rounded-xl shadow-xl px-4 py-4 transition-all transform ease-in-out"
+              className="flex flex-col w-full h-fit mb-100 md:mb-0 mt-4 rounded-xl shadow-xl px-4 py-4 transition-all transform ease-in-out"
             >
               <h2 className="flex text-3xl font-medium mb-4">
                 {cards[current - 1].title}
@@ -183,7 +183,7 @@ const MoreInfo = () => {
       className="min-h-[600vh] flex flex-col"
     >
       <div ref={ref} className="relative min-h-[600vh] flex">
-        <div className="sticky top-80 md:top-20, lg:top-30 h-screen flex flex-col justify-center items-center w-full">
+        <div className="sticky top-150 md:top-20, lg:top-30 h-screen flex flex-col justify-center items-center w-full">
           {sequences.map((sequence, i) => {
             const start = (i + 1) / (sequences.length + 1);
             const end = (i + 1) / sequences.length;

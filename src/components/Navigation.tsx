@@ -64,7 +64,7 @@ const Navigation = () => {
 
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
-      <div className="backdrop-blur-xl backdrop-hue-rotate-15 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
+      <div className="backdrop-blur-xl backdrop-hue-rotate-15 backdrop-saturate-150 bg-white/10 border-white/20 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
         <button ref={menu} className="ml-4 hover:scale-105">
           <IoIosMenu size={40} />
         </button>
@@ -76,24 +76,25 @@ const Navigation = () => {
       {open && (
         <div
           ref={dropdown}
-          className="absolute top-22 left-16 py-6 px-4 min-w-[40vw] mt-2 bg-emerald-300 rounded-3xl z-50 shadow-xl"
+          className="absolute -top-10 md:top-22 md:left-10 py-6 px-4 w-full h-[110vh] md:h-fit md:w-[40vw] mt-2 rounded-3xl z-10 md:z-50 shadow-xl
+          bg-emerald-300 md:bg-white/20 md:backdrop-blur-2xl border-white/30 transition-all duration-300"
         >
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col mt-30 md:mt-0 space-y-4 justify-center md:justify-start items-center md:items-start">
             <button
               onClick={goToProfile}
-              className="flex text-2xl w-1/2 rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
+              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
             >
               Profile
             </button>
             <button
               onClick={goToSkills}
-              className="flex text-2xl w-1/2 rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
+              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
             >
               Skills
             </button>
             <button
               onClick={goToAdditionalSkills}
-              className="flex text-2xl w-1/2 rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
+              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5"
             >
               Additional Skills
             </button>

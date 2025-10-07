@@ -24,7 +24,7 @@ const cards = [
       "linear-gradient(45deg, var(--color-blue-600), var(--color-blue-200))",
     title: "emjournal.dev",
     description:
-      "My own personal journal turned emotion-sharing social media platform. CSS was expertly used for the first time to develop subtle animations and more detailed designs. Database architecture was engineered by thoughtfully deciding the relational connections between tables and different attributes. Developed a site-wide authentication by creating a secure communication between React's useContext and backend user verification.",
+      "My own personal journal turned emotion-sharing social media platform. CSS was expertly used to develop subtle animations and more detailed designs. Database architecture was engineered by maintaining connections between tables and different attributes. Developed a site-wide authentication by creating a secure communication between React's useContext and backend user verification.",
     skills: [
       "ReactJS",
       "Node",
@@ -140,6 +140,9 @@ const CardStack = () => {
   //   };
   // }, [index]);
 
+  {
+    /* TODO: Fix the center alignment for mobile! */
+  }
   return (
     // Overall Div
     <div
@@ -147,16 +150,16 @@ const CardStack = () => {
         background: index !== null ? cards[index].overallbg : undefined,
       }}
       ref={ref}
-      className="relative min-h-[200vh] flex flex-col"
+      className="relative min-h-[200vh] flex flex-col w-full justify-center items-center"
     >
-      <div className="relative min-h-[500vh] flex">
+      <div className="relative min-h-[500vh] flex w-full justify-center items-start">
         <div className="absolute inset-0 w-full flex">
-          <h2 className="flex sticky top-40 w-full px-12 h-screen text-5xl font-semibold justify-end items-start">
+          <h2 className="flex sticky top-25 w-full px-12 h-screen text-5xl font-semibold justify-end items-start">
             Projects
           </h2>
         </div>
         {/* Scrollable Div */}
-        <div className="sticky top-20 h-screen w-1/3 flex justify-center items-center z-30 mt-20">
+        <div className="hidden md:flex sticky top-20 h-screen w-1/3 justify-center items-center z-30 mt-20">
           {cards
             .slice()
             .reverse()
@@ -230,8 +233,8 @@ const CardStack = () => {
         </div>
 
         {/* Right-side descriptions */}
-        <div className="sticky top-0 w-2/3 h-screen flex flex-col justify-center items-center">
-          <div className="flex w-full frame"></div>
+        <div className="sticky top-0 w-full md:w-2/3 h-screen flex flex-col justify-center items-center">
+          <div className="flex w-full frame" />
           {cards
             .slice()
             .reverse()
@@ -260,7 +263,7 @@ const CardStack = () => {
                   }}
                   initial="hidden"
                   whileInView="visible"
-                  className="flex absolute flex-col w-2/3 mt-[6.75rem] justify-center items-start rounded-xl px-4"
+                  className="flex absolute flex-col w-[90vw] md:w-2/3 mt-[6.75rem] justify-center items-start rounded-xl"
                 >
                   {/* <h2 className="flex text-5xl font-semibold mt-4">
                     {card.title}

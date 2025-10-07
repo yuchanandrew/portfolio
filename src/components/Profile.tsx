@@ -14,29 +14,15 @@ import {
 
 const Profile = () => {
   const useParallax = (value: MotionValue<number>, distance: number) => {
-    return useTransform(
-      value,
-      [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0],
-      [
-        0,
-        distance + 10,
-        distance + 20,
-        distance + 30,
-        distance + 40,
-        distance + 50,
-        distance + 60,
-        distance + 70,
-        distance + 80,
-        distance + 90,
-        distance + 100,
-      ]
-    );
+    const vh = typeof window !== "undefined" ? window.innerHeight : 1000;
+    const scaledHeight = distance * (vh / 1000);
+    return useTransform(value, [0, 1], [scaledHeight, 0]);
   };
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
 
-  const y = useParallax(scrollYProgress, 0);
+  const y = useParallax(scrollYProgress, 300);
 
   return (
     <motion.section
@@ -59,7 +45,7 @@ const Profile = () => {
               Full Stack Developer
             </p> */}
             <Typing />
-            <div className="grid grid-cols-3 gap-8 z-1">
+            <div className="grid grid-cols-3 gap-8 z-2">
               <Link
                 to="https://github.com/yuchanandrew"
                 className="text-3xl py-2 px-2 rounded-full transition-all transform hover:bg-emerald-700 hover:text-emerald-300 hover:scale-105"
@@ -81,7 +67,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 flex w-2/3">
+        <div className="absolute bottom-0 right-0 flex w-full md:w-2/3">
           <div className="flex frame justify-end items-end">
             <div className="flex polygon z-0" />
             <motion.img

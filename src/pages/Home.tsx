@@ -38,13 +38,17 @@ const Home = () => {
         <section id="about" className="flex flex-col w-full">
           <div className="relative h-[50vh] flex w-full">
             <div className="absolute inset-0 flex">
-              <div className="flex w-1/3">
+              <div className="hidden md:flex w-1/3">
                 <h2 className="flex text-5xl font-semibold justify-center items-center w-full">
                   About Me
                 </h2>
               </div>
-              <div className="flex flex-col w-2/3 z-5">
-                <div className="transition-rect" />
+              <div className="flex flex-col w-full md:w-2/3 z-5">
+                <div className="flex transition-rect justify-center items-center">
+                  <div className="flex md:hidden text-emerald-200 md:text-black text-5xl font-semibold rotate-343">
+                    About Me
+                  </div>
+                </div>
                 <div className="reverse-triangle" />
               </div>
             </div>
@@ -56,18 +60,6 @@ const Home = () => {
         </section>
 
         {/* Projects Section */}
-        {/* <section id="skills" className="relative min-h-[50vh] flex w-full">
-          <div className="absolute inset-0 flex">
-            <div className="flex w-1/3">
-              <h2 className="flex text-5xl font-semibold justify-center items-center w-full">
-                Projects
-              </h2>
-            </div>
-            <div className="flex w-2/3 z-5">
-              <div className="transition-rect" />
-            </div>
-          </div>
-        </section> */}
         <div
           id="skills"
           // style={{

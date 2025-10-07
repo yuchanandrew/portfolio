@@ -229,16 +229,17 @@ body {
 .triangle {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     width: 100%;
     height: 23vh;
-    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    clip-path: polygon(-2% 100%, 100% 0, 100% 100%);
     background: linear-gradient(to right, var(--color-emerald-300), var(--color-emerald-700));
     /* background: linear-gradient(45deg, var(--color-emerald-800), var(--color-emerald-600), var(--color-emerald-500), var(--color-emerald-600), var(--color-emerald-800)); */
     z-index: 2;
 }
 
 .transition-rect {
+    position: relative;
     right: 0;
     top: 0;
     width: 100%;
@@ -248,11 +249,12 @@ body {
 }
 
 .reverse-triangle {
+    margin-top: -1px;
     right: 0;
     top: 0;
     width: 100%;
     height: 23vh;
-    clip-path: polygon(0 100%, 100% 0%, 0% 0%);
+    clip-path: polygon(0% 100%, 102% 0%, 0% 0%);
     background: linear-gradient(to right, var(--color-emerald-300), var(--color-emerald-700));
     /* background: linear-gradient(45deg, var(--color-emerald-800), var(--color-emerald-600), var(--color-emerald-500), var(--color-emerald-600), var(--color-emerald-800)); */
     z-index: 0;
