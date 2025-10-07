@@ -8,10 +8,10 @@ dotenv.config();
 
 const app = express();
 
-const redirect_uri = "http://127.0.0.1:3000/callback";
+const redirect_uri = "https://andrewrho.dev/callback";
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Change for production
+    origin: 'https://andrewrho.dev', // Change for production
     credentials: true,
 }));
 

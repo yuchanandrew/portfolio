@@ -8,7 +8,7 @@ const About = () => {
 
   const fetchSong = async () => {
     const response = await axios.get(
-      "http://localhost:3000/get-currently-playing"
+      "https://api.andrewrho.dev/get-currently-playing"
     );
 
     const url = await response.data.spotify;
