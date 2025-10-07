@@ -85,7 +85,7 @@ const Profile = () => {
           <div className="flex frame justify-end items-end">
             <div className="flex polygon z-0" />
             <motion.img
-              src="../../public/me_nobg_transparent_right_resize_nopants.png"
+              src="/me_nobg_transparent_right_resize_nopants.png"
               alt="andrew"
               ref={ref}
               style={{ y }}
