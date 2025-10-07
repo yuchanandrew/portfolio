@@ -20,7 +20,7 @@ const Home = () => {
             }}
           >
             <img
-              src="../../public/headshot.JPG"
+              src="/headshot.JPG"
               alt="Andrew Rho"
               className="flex about-photo justify-self-center"
             />

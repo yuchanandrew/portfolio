@@ -16,15 +16,15 @@ services:
       - "./traefik.yml:/traefik.yml:ro"
     restart: unless-stopped
   
-  # backend:
-  #   build: ./server
-  #   env_file: ./server/.env
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.backend.rule=Host(`www.andrewrho.dev`)"
-  #     - "traefik.http.routers.backend.entrypoints=websecure"
-  #     - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
-  #     - "traefik.http.services.backend.loadbalancer.server.port=3000"
+  backend:
+    build: ./server
+    env_file: ./server/.env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`api.andrewrho.dev`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.backend.loadbalancer.server.port=3000"
   
   frontend:
     build:
