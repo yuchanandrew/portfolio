@@ -11,7 +11,7 @@ const app = express();
 const redirect_uri = "https://api.andrewrho.dev/callback";
 
 app.use(cors({
-    origin: 'https://www1.andrewrho.dev', // Change for production
+    origin: 'https://www.andrewrho.dev', // Change for production
     credentials: true,
 }));
 

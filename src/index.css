@@ -310,3 +310,12 @@ body {
         width: 0;
     }
 }
+
+/*MONTAGE*/
+.montage-frame {
+    display: flex;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background-color: var(--color-pink-300);
+}

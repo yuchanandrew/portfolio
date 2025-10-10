@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .env
+
+# Files in testing
+Montage.tsx
+Test.tsx

@@ -8,7 +8,10 @@ const Layout = () => {
     <div className="flex flex-col z-50 w-full">
       <Navigation />
       <div className="flex-1 w-full">
-        <Outlet />
+        <div className="min-h-screen">
+          {/* Maybe change to min-h-[calc(100vh-5.25rem)] */}
+          <Outlet />
+        </div>
         <div className="z-10">
           <Footer />
         </div>
