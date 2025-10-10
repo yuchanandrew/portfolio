@@ -25,6 +25,6 @@ dist-ssr
 
 .env
 
-# Files in testing
-Montage.tsx
-Test.tsx
+# # Files in testing
+# Montage.tsx
+# Test.tsx
