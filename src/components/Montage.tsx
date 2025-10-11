@@ -42,7 +42,7 @@ const Montage = () => {
     style.textContent = keyframes;
     document.head.appendChild(style);
 
-    return () => document.head.removeChild(style);
+    // return () => document.head.removeChild(style);
   }, []);
   return (
     <div className="flex w-full h-screen justify-center items-center">

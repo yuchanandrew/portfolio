@@ -45,7 +45,7 @@ const Home = () => {
               </div>
               <div className="flex flex-col w-full md:w-2/3 z-5">
                 <div className="flex transition-rect justify-center items-center">
-                  <div className="flex md:hidden text-emerald-200 md:text-black text-5xl font-semibold rotate-343">
+                  <div className="flex md:hidden text-emerald-200 md:text-black text-5xl font-semibold rotate-350">
                     About Me
                   </div>
                 </div>

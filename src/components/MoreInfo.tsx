@@ -183,7 +183,7 @@ const MoreInfo = () => {
       className="min-h-[600vh] flex flex-col"
     >
       <div ref={ref} className="relative min-h-[600vh] flex">
-        <div className="sticky top-150 md:top-20, lg:top-30 h-screen flex flex-col justify-center items-center w-full">
+        <div className="sticky top-75 md:top-50 lg:top-30 h-screen flex flex-col justify-center items-center w-full">
           {sequences.map((sequence, i) => {
             const start = (i + 1) / (sequences.length + 1);
             const end = (i + 1) / sequences.length;

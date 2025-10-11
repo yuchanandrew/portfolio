@@ -25,7 +25,7 @@ body {
 
 /* Splash intro!! */
 .photo-wrapper {
-    @apply relative max-w-[50vw] max-h-[50vw] md:max-w-[25vw] md:max-h-[25vw] lg:max-w-[10vw] lg:max-h-[10vw] aspect-square z-1;
+    @apply relative max-w-[35vw] max-h-[35vw] md:max-w-[25vw] md:max-h-[25vw] lg:max-w-[10vw] lg:max-h-[10vw] aspect-square z-1;
 }
 
 .photo-wrapper::before {

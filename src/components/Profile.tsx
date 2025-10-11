@@ -1,7 +1,4 @@
 import React, { useRef } from "react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import Typing from "./Typing";
 
 import {
@@ -11,6 +8,7 @@ import {
   MotionValue,
   useSpring,
 } from "framer-motion";
+import Socials from "./Socials";
 
 const Profile = () => {
   const useParallax = (value: MotionValue<number>, distance: number) => {
@@ -45,26 +43,7 @@ const Profile = () => {
               Full Stack Developer
             </p> */}
             <Typing />
-            <div className="grid grid-cols-3 gap-8 z-2">
-              <Link
-                to="https://github.com/yuchanandrew"
-                className="text-3xl py-2 px-2 rounded-full transition-all transform hover:bg-emerald-700 hover:text-emerald-300 hover:scale-105"
-              >
-                <FaGithub />
-              </Link>
-              <Link
-                to="https://github.com/yuchanandrew"
-                className="text-3xl py-2 px-2 rounded-full transition-all transform hover:bg-emerald-700 hover:text-emerald-300 hover:scale-105"
-              >
-                <FaInstagram />
-              </Link>
-              <Link
-                to="https://www.linkedin.com/in/andrew-rho-4b3940154/"
-                className="text-3xl py-2 px-2 rounded-full transition-all transform hover:bg-emerald-700 hover:text-emerald-300 hover:scale-105"
-              >
-                <FaLinkedin />
-              </Link>
-            </div>
+            <Socials />
           </div>
         </div>
         <div className="absolute bottom-0 right-0 flex w-full md:w-2/3">

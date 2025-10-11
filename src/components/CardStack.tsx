@@ -233,7 +233,14 @@ const CardStack = () => {
         </div>
 
         {/* Right-side descriptions */}
-        <div className="sticky top-0 w-full md:w-2/3 h-screen flex flex-col justify-center items-center">
+        <div className="sticky top-0 w-full md:w-2/3 h-screen flex flex-col justify-center items-center overflow-hidden">
+          <div className="sticky bottom-0 right-0">
+            <img
+              src="/assets/halftones_light.png"
+              alt="Light halftones decal"
+              className="z-50 mt-40"
+            />
+          </div>
           <div className="flex w-full frame" />
           {cards
             .slice()
