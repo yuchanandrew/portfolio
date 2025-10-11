@@ -9,7 +9,7 @@ const Footer = () => {
         <img
           src="/assets/splash_dark.png"
           alt="Dark splash decal"
-          className="w-full opacity-30"
+          className="w-full opacity-30 object-cover scale-150 md:scale-110 lg:scale-100"
         />
       </div>
       <div className="absolute bottom-0 right-0">
@@ -18,8 +18,8 @@ const Footer = () => {
           <Socials />
         </div>
       </div>
-      <div className="absolute top-0 sm:left-0 md:right-0 w-full text-9xl font-bold text-emerald-500 opacity-30 z-1">
-        Andrew
+      <div className="absolute top-0 sm:left-0 md:right-0 w-full text-5xl md:text-9xl font-bold text-emerald-500 opacity-30 z-1">
+        a.rho
       </div>
       <div className="absolute bottom-0 left-0 w-full text-emerald-200 text-2xl p-2 z-5">
         Copyright © Andrew Rho 2025

@@ -108,7 +108,7 @@ const MoreInfo = () => {
       id: 3,
       type: "cards",
       content: (
-        <div className="flex flex-col justify-center items-center w-[80vw] min-h-full">
+        <div className="flex flex-col justify-center items-center w-[80vw]">
           <h2
             style={{
               background:
@@ -156,16 +156,18 @@ const MoreInfo = () => {
               </motion.div>
             ))}
           </div>
-          {current && (
+          {current ? (
             <div
               style={{ background: cards[current - 1].style }}
-              className="flex flex-col w-full h-fit mb-100 md:mb-0 mt-4 rounded-xl shadow-xl px-4 py-4 transition-all transform ease-in-out"
+              className="flex flex-col w-full h-[30vh] mb-100 md:mb-0 mt-4 rounded-xl shadow-xl px-4 py-4 transition-all transform ease-in-out"
             >
               <h2 className="flex text-3xl font-medium mb-4">
                 {cards[current - 1].title}
               </h2>
               <p className="flex">{cards[current - 1].description}</p>
             </div>
+          ) : (
+            <div className="flex h-[30vh] mb-100 md:mb-0 mt-4 px-4 py-4"></div>
           )}
         </div>
       ),
@@ -182,8 +184,8 @@ const MoreInfo = () => {
       transition={{ duration: 2, ease: easeInOut }}
       className="min-h-[600vh] flex flex-col"
     >
-      <div ref={ref} className="relative min-h-[600vh] flex">
-        <div className="sticky top-75 md:top-50 lg:top-30 h-screen flex flex-col justify-center items-center w-full">
+      <div ref={ref} className="relative min-h-[570vh] md:min-h-[600vh] flex">
+        <div className="sticky top-50 h-screen flex flex-col justify-start items-center w-full">
           {sequences.map((sequence, i) => {
             const start = (i + 1) / (sequences.length + 1);
             const end = (i + 1) / sequences.length;
@@ -212,7 +214,7 @@ const MoreInfo = () => {
                     : { y, opacity: opacity_solid }
                 }
                 initial="hidden"
-                className={`${sequence.class}`}
+                className={`flex ${sequence.class}`}
               >
                 {sequence.content}
               </motion.div>
