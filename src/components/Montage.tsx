@@ -1,55 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const clips = [
-  {
-    id: 1,
-    source: "/video/Screenshot 2025-10-07 160608.png",
-  },
-  {
-    id: 2,
-    source: "/video/Screenshot 2025-10-07 160631.png",
-  },
-  {
-    id: 3,
-    source: "/video/Screenshot 2025-10-07 160641.png",
-  },
-  {
-    id: 4,
-    source: "/video/Screenshot 2025-10-07 160702.png",
-  },
-  {
-    id: 5,
-    source: "/video/Screenshot 2025-10-07 160714.png",
-  },
-  {
-    id: 6,
-    source: "/video/Screenshot 2025-10-07 160721.png",
-  },
-];
+type clip = {
+  id: number;
+  source: string;
+};
 
-const Montage = () => {
+interface MontageProps {
+  clips: clip[];
+}
+
+const Montage = ({ clips }: MontageProps) => {
+  const [end, setEnd] = useState(0);
+
   useEffect(() => {
-    let keyframes = "@keyframes piling {\n";
+    if (end < clips.length) {
+      // Check if end is less than the length of clips
+      const timer = setTimeout(() => setEnd((prev) => prev + 1), 150); // Iterate through each
+      return () => clearTimeout(timer);
+    } else if (end === clips.length) {
+      setEnd(1);
+    }
+  }, [clips.length, end]);
 
-    clips.forEach((clip, i) => {
-      const percent = (i / (clips.length - 1)) * 100;
-      keyframes += ` ${percent}% { opacity: 1; background-image:url(${clip.source}) }\n`;
-    });
-
-    keyframes += "}";
-
-    const style = document.createElement("style");
-    style.textContent = keyframes;
-    document.head.appendChild(style);
-
-    // return () => document.head.removeChild(style);
-  }, []);
   return (
-    <div className="flex w-full h-screen justify-center items-center">
-      <div
-        style={{ animation: "piling 3s linear infinite" }}
-        className="flex montage-frame w-[400px] h-[600px] bg-center bg-cover"
-      />
+    <div className="flex w-full justify-center items-center">
+      <div className="flex w-1/2 py-20 bg-amber-200">
+        {clips.slice(0, end).map((clip) => (
+          <img
+            key={clip.id}
+            src={clip.source}
+            alt={`Clip number ${clip.id + 1} in montage`}
+            className={
+              end % 5 === 1
+                ? "w-1/4 absolute object-cover aspect-square rotate-5"
+                : end % 5 === 3
+                ? "w-1/4 absolute object-cover aspect-square rotate-355"
+                : "w-1/4 absolute object-cover aspect-square"
+            }
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -33,7 +33,7 @@ const Profile = () => {
       {/* Main profile */}
       <div className="relative flex w-full">
         <div className="flex w-full justify-center items-start md:justify-start md:items-center md:px-16">
-          <div className="flex flex-col justify-center items-start">
+          <div className="flex flex-col justify-center items-center md:items-start">
             <h2 className="flex text-6xl font-semibold text-emerald-200 mb-2 bg-emerald-700 rounded-xl py-2 px-2">
               Hello, I am
             </h2>
@@ -48,13 +48,21 @@ const Profile = () => {
         </div>
         <div className="absolute bottom-0 right-0 flex w-full md:w-2/3">
           <div className="flex frame justify-end items-end">
+            {/* TODO: Fix the messy halftones */}
+            {/* <div className="flex z-1">
+              <img
+                src="/assets/circular_messy_halftone.png"
+                alt="Messy halftone in the shape of a circle"
+                className="absolute top-0 w-1/2"
+              />
+            </div> */}
             <div className="flex polygon z-0" />
             <motion.img
               src="/me_nobg_transparent_right_resize_nopants.png"
               alt="andrew"
               ref={ref}
               style={{ y }}
-              className="flex profile lg:w-3/4 md:w-3/4 sm:w-3/4 aspect-square object-contain z-1"
+              className="flex profile lg:w-3/4 md:w-3/4 sm:w-3/4 aspect-square object-contain z-2"
             />
             <div className="flex triangle shadow-xl" />
           </div>

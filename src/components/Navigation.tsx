@@ -123,53 +123,59 @@ const Navigation = () => {
         <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-10"></div>
       )}
       {open && (
-        <motion.div
-          ref={dropdown}
-          onMouseMove={onMouseMove}
-          onMouseLeave={onMouseLeave}
-          initial={{ scale: 0.8, rotateX: 0, rotateY: 0 }}
-          animate={{ scale: 1, rotateX: rotate.x, rotateY: rotate.y }}
-          style={{
-            perspective: 1000,
-          }}
-          transition={{
-            type: "spring",
-            bounce: 1,
-            duration: 0.05,
-            ease: easeInOut,
-          }}
-          className="absolute -top-10 md:top-22 md:left-15 py-6 px-4 overflow-hidden w-full h-[110vh] md:h-fit md:w-[40vw] mt-2 rounded-3xl z-10 md:z-50 shadow-xl
-          bg-emerald-300 md:bg-white/20 md:backdrop-blur-2xl border-2 border-white/30 transition-[all_400ms_cubic-bezier(0.030.98,0.52,0.99)_0s] will-change-transform"
-        >
-          <div className="absolute -bottom-5 -right-5 text-9xl text-emerald-700/30 z-1">
-            {/* <FaStar /> */}
-            <img
-              src="/assets/halftones_light.png"
-              alt="Halftones/dot matrix backdrop design"
-              className="opacity-20 z-0"
-            />
-          </div>
-          <div className="flex flex-col mt-30 md:mt-0 space-y-4 justify-center md:justify-start items-center md:items-start">
-            <button
-              onClick={goToProfile}
-              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
-            >
-              Profile
-            </button>
-            <button
-              onClick={goToSkills}
-              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
-            >
-              Skills
-            </button>
-            <button
-              onClick={goToAdditionalSkills}
-              className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
-            >
-              Additional Skills
-            </button>
-          </div>
-        </motion.div>
+        <>
+          <motion.div
+            ref={dropdown}
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
+            initial={{ scale: 0.8, rotateX: 0, rotateY: 0 }}
+            animate={{ scale: 1, rotateX: rotate.x, rotateY: rotate.y }}
+            style={{
+              perspective: 1000,
+            }}
+            transition={{
+              type: "spring",
+              bounce: 1,
+              duration: 0.05,
+              ease: easeInOut,
+            }}
+            className="absolute -top-10 md:top-22 md:left-15 overflow-visible w-full h-[110vh] md:h-[215px] md:w-[40vw] mt-2 z-10
+            md:backdrop-blur-2xl rounded-3xl transition-[all_400ms_cubic-bezier(0.030.98,0.52,0.99)_0s] will-change-transform"
+          >
+            <div className="absolute top-0 py-6 px-4 w-full h-full rounded-3xl z-10 bg-emerald-300 overflow-hidden">
+              <div className="absolute -bottom-5 -right-5 text-9xl text-emerald-700/30 z-1 overflow-hidden">
+                {/* <FaStar /> */}
+                <img
+                  src="/assets/halftones_light.png"
+                  alt="Halftones/dot matrix backdrop design"
+                  className="opacity-20 rounded-3xl z-0"
+                />
+              </div>
+              <div className="flex flex-col mt-30 md:mt-0 space-y-4 justify-center md:justify-start items-center md:items-start">
+                <button
+                  onClick={goToProfile}
+                  className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
+                >
+                  Profile
+                </button>
+                <button
+                  onClick={goToSkills}
+                  className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
+                >
+                  Skills
+                </button>
+                <button
+                  onClick={goToAdditionalSkills}
+                  className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
+                >
+                  Additional Skills
+                </button>
+              </div>
+            </div>
+            {/* Add dropdown menu here */}
+            <div className="hidden md:flex absolute top-3 -right-3 z-0 bg-black rounded-3xl w-full h-[215px]"></div>
+          </motion.div>
+        </>
       )}
     </div>
   );

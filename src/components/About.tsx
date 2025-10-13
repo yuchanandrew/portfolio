@@ -71,7 +71,7 @@ const About = () => {
         <div className="flex flex-col col-span-2 justify-center items-center">
           <div className="flex justify-center items-center mb-8 w-full bg-emerald-700 rounded-xl px-2 py-2 border-r-8 border-b-10 border-emerald-900">
             <h2 className="flex justify-center text-3xl font-medium text-emerald-200">
-              Listen to this while you scroll 🎶
+              The song I'm listening to right now 🎶
             </h2>
           </div>
           <Song source={track} />
