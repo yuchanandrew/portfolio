@@ -143,7 +143,9 @@ const Navigation = () => {
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
       <div className="backdrop-blur-xl backdrop-hue-rotate-15 gap-8 items-center backdrop-saturate-150 bg-white/10 border-white/20 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
         <button
+          type="button"
           ref={menu}
+          aria-label="Toggle site menu"
           className="ml-4 cursor-pointer transition-all transform hover:scale-105"
         >
           <IoIosMenu size={40} />
@@ -151,18 +153,24 @@ const Navigation = () => {
         <h2 className="flex md:hidden text-3xl font-bold ml-2">Portfolio</h2>
         <button
           onClick={goToProfile}
+          type="button"
+          aria-label="Navigate to profile section"
           className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
         >
           Profile
         </button>
         <button
           onClick={goToSkills}
+          type="button"
+          aria-label="Navigate to projects section"
           className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
         >
           Projects
         </button>
         <button
           onClick={goToAdditionalSkills}
+          type="button"
+          aria-label="Navigate to additional skills section"
           className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
         >
           Additional Skill
@@ -188,7 +196,7 @@ const Navigation = () => {
               duration: 0.05,
               ease: easeInOut,
             }}
-            className="absolute -top-10 md:top-22 md:left-15 overflow-visible w-full h-[110vh] md:h-[215px] md:w-[40vw] mt-2 z-10
+            className="absolute -top-10 md:top-22 md:left-15 overflow-visible w-full h-[110vh] md:h-[150px] md:w-[40vw] mt-2 z-10
             md:backdrop-blur-2xl rounded-3xl transition-[all_400ms_cubic-bezier(0.030.98,0.52,0.99)_0s] will-change-transform"
           >
             <div className="absolute top-0 py-6 px-4 w-full h-full rounded-3xl z-10 bg-emerald-300 overflow-hidden">
@@ -202,27 +210,21 @@ const Navigation = () => {
               </div>
               <div className="flex flex-col mt-30 md:mt-0 space-y-4 justify-center md:justify-start items-center md:items-start">
                 <button
-                  onClick={goToProfile}
+                  onClick={() => navigate("/")}
                   className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
                 >
-                  Profile
+                  Portfolio
                 </button>
                 <button
-                  onClick={goToSkills}
+                  onClick={() => navigate("/freelance")}
                   className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
                 >
-                  Skills
-                </button>
-                <button
-                  onClick={goToAdditionalSkills}
-                  className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
-                >
-                  Additional Skills
+                  Freelance
                 </button>
               </div>
             </div>
             {/* Add dropdown menu here */}
-            <div className="hidden md:flex absolute top-3 -right-3 z-0 bg-black rounded-3xl w-full h-[215px]"></div>
+            <div className="hidden md:flex absolute top-3 -right-3 z-0 bg-black rounded-3xl w-full h-[150px]"></div>
           </motion.div>
         </>
       )}
