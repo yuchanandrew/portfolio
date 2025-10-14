@@ -10,6 +10,7 @@ import Test from "./pages/Test";
 import Blog from "./pages/Blog";
 
 import axios from "axios";
+import Freelance from "./pages/Freelance";
 
 axios.defaults.withCredentials = true;
 
@@ -19,12 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/cards" element={<CardStack />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/more" element={<MoreInfo />} />
-          <Route path="/typing" element={<Typing />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/freelance" element={<Freelance />} />
         </Route>
       </Routes>
     </BrowserRouter>

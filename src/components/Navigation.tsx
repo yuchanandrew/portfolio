@@ -111,13 +111,62 @@ const Navigation = () => {
     });
   };
 
+  {
+    /* TODO: Implement logic to follow along which section user is browsing
+      on navbar on md-lg viewports */
+  }
+  // const profileSection = document.getElementById("profile");
+  // const [profile, setProfile] = useState(false);
+
+  // const projectSection = document.getElementsByName("skills");
+  // const [projects, setProjects] = useState(false);
+
+  // const additionalSection = document.getElementById("additional-skills");
+  // const [additionalSkills, setAdditionalSkills] = useState(false);
+
+  // const observer = new IntersectionObserver(
+  //   (entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         setProfile(true);
+  //       } else {
+  //         setProfile(false);
+  //       }
+  //     });
+  //   },
+  //   { threshold: 0.05 }
+  // );
+
+  // observer.observe(profileSection);
+
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
-      <div className="backdrop-blur-xl backdrop-hue-rotate-15 backdrop-saturate-150 bg-white/10 border-white/20 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
-        <button ref={menu} className="ml-4 hover:scale-105">
+      <div className="backdrop-blur-xl backdrop-hue-rotate-15 gap-8 items-center backdrop-saturate-150 bg-white/10 border-white/20 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
+        <button
+          ref={menu}
+          className="ml-4 cursor-pointer transition-all transform hover:scale-105"
+        >
           <IoIosMenu size={40} />
         </button>
-        <h2 className="text-3xl font-bold ml-2">Portfolio</h2>
+        <h2 className="flex md:hidden text-3xl font-bold ml-2">Portfolio</h2>
+        <button
+          onClick={goToProfile}
+          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+        >
+          Profile
+        </button>
+        <button
+          onClick={goToSkills}
+          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+        >
+          Projects
+        </button>
+        <button
+          onClick={goToAdditionalSkills}
+          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+        >
+          Additional Skill
+        </button>
       </div>
       {open && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-10"></div>

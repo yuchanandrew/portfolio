@@ -319,3 +319,13 @@ body {
     height: 50%;
     background-color: var(--color-pink-300);
 }
+
+/* FREELANCE
+.freelance-polygon {
+    display: flex;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(45deg, var(--color-indigo-600), var(--color-sky-300));
+    clip-path: polygon(100% 0%, 0% 0%, 50% 0%, 0% 100%);
+} */
