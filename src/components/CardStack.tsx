@@ -23,8 +23,9 @@ const cards = [
     background:
       "linear-gradient(45deg, var(--color-blue-600), var(--color-blue-200))",
     title: "emjournal.dev",
-    description:
-      "My own personal journal turned emotion-sharing social media platform. CSS was expertly used to develop subtle animations and more detailed designs. Database architecture was engineered by maintaining connections between tables and different attributes. Developed a site-wide authentication by creating a secure communication between React's useContext and backend user verification.",
+    description: `My own personal journal turned emotion-sharing social media platform. 
+      I designed a database architecture that allowed for users to keep track of their own posts
+      and decide which ones to share and which ones to keep private.`,
     skills: [
       "ReactJS",
       "Node",
@@ -41,6 +42,7 @@ const cards = [
     ],
     bgstyle:
       "linear-gradient(45deg, var(--color-orange-300), var(--color-yellow-200))",
+    skillbg: "var(--color-orange-100)",
     overallbg:
       "linear-gradient(45deg, var(--color-orange-600), var(--color-yellow-400))",
   },
@@ -50,11 +52,14 @@ const cards = [
     background:
       "linear-gradient(45deg, var(--color-emerald-600), var(--color-emerald-200))",
     title: "Prk-n-Pik Storefront",
-    description:
-      "Created a custom storefront for a business, which communicated directly to the Clover Point-of-Sale system to ensure ACID-certified transactions. Data that wasn't a part of the data architecture in Clover POS was included in a separate MySQL database, such as images, descriptions, and inventory count.",
+    description: `Created a custom storefront for a business, which communicated directly to the Clover 
+      Point-of-Sale system to ensure ACID-certified transactions. Data that wasn't a part of 
+      the data architecture in Clover POS was included in a separate MySQL database, such as 
+      images, descriptions, and inventory count.`,
     skills: ["ReactJS", "Node", "Express", "MySQL", "Clover", "TailwindCSS"],
     bgstyle:
       "linear-gradient(45deg, var(--color-red-400), var(--color-rose-200))",
+    skillbg: "var(--color-rose-100)",
     overallbg:
       "linear-gradient(45deg, var(--color-red-600), var(--color-rose-400))",
   },
@@ -64,11 +69,13 @@ const cards = [
     background:
       "linear-gradient(45deg, var(--color-indigo-600), var(--color-indigo-200))",
     title: "Graphic Violence",
-    description:
-      "Utilized ReactJS to create a clean user interface and was the first exposure to single page application rendering. I utilized JSON Web Tokens (JWT) to store user cookies and develop a session-based cart system, which seamlessly transitioned into the Stripe API.",
+    description: `Utilized ReactJS to create a clean user interface and was the first exposure to single 
+      page application rendering. I utilized JSON Web Tokens (JWT) to store user cookies and develop
+      a session-based cart system, which seamlessly transitioned into the Stripe API.`,
     skills: ["ReactJS", "Node", "Express", "Stripe", "TailwindCSS"],
     bgstyle:
       "linear-gradient(45deg, var(--color-blue-400), var(--color-green-200))",
+    skillbg: "var(--color-blue-100)",
     overallbg:
       "linear-gradient(45deg, var(--color-blue-600), var(--color-green-400))",
   },
@@ -281,6 +288,7 @@ const CardStack = () => {
                     description={card.description}
                     skills={card.skills}
                     bgstyle={card.bgstyle}
+                    skillbg={card.skillbg}
                   />
                 </motion.div>
               );

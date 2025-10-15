@@ -5,6 +5,7 @@ interface ProjectCardProp {
   description: string; // Of type string
   skills: string[]; // Of type string array
   bgstyle: string;
+  skillbg: string;
 }
 
 const ProjectCard = ({
@@ -12,6 +13,7 @@ const ProjectCard = ({
   description,
   skills,
   bgstyle,
+  skillbg,
 }: ProjectCardProp) => {
   return (
     <div
@@ -22,7 +24,10 @@ const ProjectCard = ({
       <p className="flex mb-4">{description}</p>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <div className="flex px-2 py-1 rounded-full text-sm bg-white">
+          <div
+            style={{ background: skillbg }}
+            className="flex px-2 py-1 rounded-full text-sm bg-white"
+          >
             {skill}
           </div>
         ))}
