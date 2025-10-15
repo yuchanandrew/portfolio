@@ -126,7 +126,7 @@ const Navigation = () => {
     });
   };
 
-  const goToAdditionalSkills = () => {
+  const goToTechStacks = () => {
     navigate("/");
 
     setTimeout(() => {
@@ -205,14 +205,14 @@ const Navigation = () => {
 
         {/* Additional Skills */}
         <button
-          onClick={goToAdditionalSkills}
+          onClick={goToTechStacks}
           type="button"
-          aria-label="Navigate to additional skills section"
+          aria-label="Navigate to tech stacks section"
           className="hidden md:flex justify-center items-center 
           ml-2 cursor-pointer z-10 navigation-option"
         >
           <div className="selector z-1" />
-          <h2 className="flex text-2xl font-medium z-5">Additional Skill</h2>
+          <h2 className="flex text-2xl font-medium z-5">Tech Stacks</h2>
         </button>
       </div>
       {open && (

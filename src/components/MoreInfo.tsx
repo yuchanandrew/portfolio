@@ -5,6 +5,7 @@ import {
   motion,
   easeInOut,
   spring,
+  easeIn,
 } from "framer-motion";
 import {
   FaDigitalOcean,
@@ -12,7 +13,10 @@ import {
   FaFigma,
   FaGitAlt,
   FaLinux,
+  FaNode,
+  FaReact,
 } from "react-icons/fa";
+import { title } from "framer-motion/client";
 
 const MoreInfo = () => {
   const ref = useRef(null);
@@ -36,56 +40,83 @@ const MoreInfo = () => {
   const cards = [
     {
       id: 1,
-      icon: <FaDocker />,
-      title: "Docker",
+      icon: <FaReact />,
+      title: "Frontend",
       style: "var(--color-sky-500)",
       divBackground: "var(--color-sky-300)",
       class: "text-white",
-      description:
-        "Familiar with docker-compose, Dockerfiles, and .dockerignore files. Can dockerize containers effectively and securely, ready for production-ready packages to deploy.",
+      description: "Used ReactJS, TailwindCSS, CSS, and Typescript",
     },
     {
       id: 2,
-      icon: <FaFigma />,
-      title: "Figma",
-      style:
-        "linear-gradient(45deg, var(--color-green-500), var(--color-blue-400), var(--color-purple-400), var(--color-red-400), var(--color-red-500))",
-      divBackground:
-        "linear-gradient(225deg, var(--color-green-300), var(--color-blue-200), var(--color-purple-200), var(--color-red-200), var(--color-red-200))",
-      class: "text-black",
-      description:
-        "Cleanly design high-fidelity website mockups and designs with great proficiency of Figma tools and assets.",
+      icon: <FaNode />,
+      title: "Backend",
+      style: "var(--color-emerald-500)",
+      divBackground: "var(--color-emerald-300)",
+      class: "text-white",
+      description: "Used Node, Express, and MySQL for database integration",
     },
     {
       id: 3,
-      icon: <FaLinux />,
-      title: "Linux",
-      style: "var(--color-yellow-300)",
-      divBackground: "var(--color-yellow-100)",
-      class: "text-black",
-      description:
-        "Mastered Linux commands to deploy Docker containers into production. Proficient at administering user-level permissions and re-assigning root-level access to secured users.",
-    },
-    {
-      id: 4,
-      icon: <FaDigitalOcean />,
-      title: "Digital Ocean",
-      style: "var(--color-blue-600)",
-      divBackground: "var(--color-blue-400)",
+      icon: <FaDocker />,
+      title: "DevOps",
+      style: "var(--color-blue-500)",
+      divBackground: "var(--color-blue-300)",
       class: "text-white",
-      description:
-        "Effectively deployed projects onto DigitalOcean VPS to significantly cut costs on deployment.",
+      description: "Used Docker, DigitalOcean VPS, and Cloudflare DNS",
     },
-    {
-      id: 5,
-      icon: <FaGitAlt />,
-      title: "Git",
-      style: "var(--color-red-400)",
-      divBackground: "var(--color-red-200)",
-      class: "text-black",
-      description:
-        "Utilized Git and Github to organize and keep record of previous project commits and pushes.",
-    },
+    // {
+    //   id: 1,
+    //   icon: <FaDocker />,
+    //   title: "Docker",
+    //   style: "var(--color-sky-500)",
+    //   divBackground: "var(--color-sky-300)",
+    //   class: "text-white",
+    //   description:
+    //     "Familiar with docker-compose, Dockerfiles, and .dockerignore files. Can dockerize containers effectively and securely, ready for production-ready packages to deploy.",
+    // },
+    // {
+    //   id: 2,
+    //   icon: <FaFigma />,
+    //   title: "Figma",
+    //   style:
+    //     "linear-gradient(45deg, var(--color-green-500), var(--color-blue-400), var(--color-purple-400), var(--color-red-400), var(--color-red-500))",
+    //   divBackground:
+    //     "linear-gradient(225deg, var(--color-green-300), var(--color-blue-200), var(--color-purple-200), var(--color-red-200), var(--color-red-200))",
+    //   class: "text-black",
+    //   description:
+    //     "Cleanly design high-fidelity website mockups and designs with great proficiency of Figma tools and assets.",
+    // },
+    // {
+    //   id: 3,
+    //   icon: <FaLinux />,
+    //   title: "Linux",
+    //   style: "var(--color-yellow-300)",
+    //   divBackground: "var(--color-yellow-100)",
+    //   class: "text-black",
+    //   description:
+    //     "Mastered Linux commands to deploy Docker containers into production. Proficient at administering user-level permissions and re-assigning root-level access to secured users.",
+    // },
+    // {
+    //   id: 4,
+    //   icon: <FaDigitalOcean />,
+    //   title: "Digital Ocean",
+    //   style: "var(--color-blue-600)",
+    //   divBackground: "var(--color-blue-400)",
+    //   class: "text-white",
+    //   description:
+    //     "Effectively deployed projects onto DigitalOcean VPS to significantly cut costs on deployment.",
+    // },
+    // {
+    //   id: 5,
+    //   icon: <FaGitAlt />,
+    //   title: "Git",
+    //   style: "var(--color-red-400)",
+    //   divBackground: "var(--color-red-200)",
+    //   class: "text-black",
+    //   description:
+    //     "Utilized Git and Github to organize and keep record of previous project commits and pushes.",
+    // },
   ];
 
   {
@@ -122,11 +153,11 @@ const MoreInfo = () => {
             }}
             className="text-3xl font-semibold py-2 px-4 rounded-xl mb-8"
           >
-            Additional Skills
+            My Tech Stacks
           </h2>
           <div
             id="additional-skills"
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[80vw] justify-center items-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 w-[80vw] justify-center items-center"
           >
             {cards.map((card) => (
               <motion.div
@@ -134,17 +165,20 @@ const MoreInfo = () => {
                 style={{ background: card.style }}
                 onClick={() => handleClick(card.id)}
                 initial={{ scale: 0 }}
-                animate={{ scale: current === card.id ? 1.1 : 1 }}
+                animate={{
+                  scale: current === card.id ? 1.05 : 1,
+                  rotate: current === card.id ? 5 : 1,
+                }}
                 transition={{
-                  duration: 0.2,
-                  type: spring,
-                  stiffness: 300,
-                  damping: 20,
+                  type: "spring",
+                  bounce: 1,
+                  duration: 0.05,
+                  ease: easeInOut,
                 }}
                 className="relative flex flex-col h-[20vh] rounded-xl shadow-xl overflow-hidden transition-all transform hover:bg-emerald-400 hover:scale-103 hover:rotate-5 ease-in-out"
               >
                 <div className="flex justify-end items-start h-full">
-                  <div className="flex text-2xl font-medium px-4 py-4">
+                  <div className="flex text-2xl font-medium px-4 py-4 z-10">
                     {card.title}
                   </div>
                 </div>
@@ -161,7 +195,7 @@ const MoreInfo = () => {
               style={{ background: cards[current - 1].style }}
               className="flex flex-col w-full h-[30vh] mb-100 md:mb-0 mt-4 rounded-xl shadow-xl px-4 py-4 transition-all transform ease-in-out"
             >
-              <h2 className="flex text-3xl font-medium mb-4">
+              <h2 className="flex text-3xl font-medium mb-4 z-10">
                 {cards[current - 1].title}
               </h2>
               <p className="flex">{cards[current - 1].description}</p>
