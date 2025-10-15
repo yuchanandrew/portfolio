@@ -108,6 +108,10 @@ const Navigation = () => {
     };
   }, [open]);
 
+  {
+    /***************** NAVIGATION *****************/
+  }
+
   const navigate = useNavigate();
 
   const goToProfile = () => {
@@ -115,6 +119,14 @@ const Navigation = () => {
 
     setTimeout(() => {
       document.getElementById("profile")?.scrollIntoView({ behavior: "auto" });
+    });
+  };
+
+  const goToAbout = () => {
+    navigate("/");
+
+    setTimeout(() => {
+      document.getElementById("about")?.scrollIntoView({ behavior: "auto" });
     });
   };
 
@@ -137,32 +149,47 @@ const Navigation = () => {
   };
 
   {
-    /* TODO: Implement logic to follow along which section user is browsing
-      on navbar on md-lg viewports */
+    /***************** OBSERVERS *****************/
   }
-  // const profileSection = document.getElementById("profile");
-  // const [profile, setProfile] = useState(false);
 
-  // const projectSection = document.getElementsByName("skills");
-  // const [projects, setProjects] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
+  const [showTech, setShowTech] = useState(false);
 
-  // const additionalSection = document.getElementById("additional-skills");
-  // const [additionalSkills, setAdditionalSkills] = useState(false);
+  function useSectionObserver(id: string, ratio: 0.3) {
+    const [isVisible, setIsVisible] = useState(false);
 
-  // const observer = new IntersectionObserver(
-  //   (entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         setProfile(true);
-  //       } else {
-  //         setProfile(false);
-  //       }
-  //     });
-  //   },
-  //   { threshold: 0.05 }
-  // );
+    useEffect(() => {
+      const section = document.getElementById(id);
+      if (!section) return;
 
-  // observer.observe(profileSection);
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              // console.log(`Intersecting with ${id}`); // For developmental testing
+            } else {
+              setIsVisible(false);
+            }
+          });
+        },
+        { threshold: ratio }
+      );
+
+      observer.observe(section);
+
+      return () => observer.disconnect();
+    }, [id, ratio]);
+
+    return isVisible;
+  }
+
+  const profileObserver = useSectionObserver("profile", 0.3);
+  const aboutObserver = useSectionObserver("about", 0.3);
+  const projectObserver = useSectionObserver("skills", 0.3);
+  const techObserver = useSectionObserver("additional-skills", 0.3);
 
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
@@ -187,8 +214,22 @@ const Navigation = () => {
           className="hidden md:flex text-2xl justify-center items-center
           font-medium ml-2 cursor-pointer z-10 navigation-option"
         >
+          {profileObserver && <div className="tab-underline" />}
           <div className="selector z-1" />
           <h2 className="flex text-2xl font-medium z-5">Profile</h2>
+        </button>
+
+        {/* About Me */}
+        <button
+          onClick={goToAbout}
+          type="button"
+          aria-label="Navigate to about me section"
+          className="hidden md:flex text-2xl justify-center items-center
+          font-medium ml-2 cursor-pointer z-10 navigation-option"
+        >
+          {aboutObserver && <div className="tab-underline" />}
+          <div className="selector z-1" />
+          <h2 className="flex text-2xl font-medium z-5">About</h2>
         </button>
 
         {/* Projects */}
@@ -199,6 +240,7 @@ const Navigation = () => {
           className="hidden md:flex justify-center items-center 
           ml-2 cursor-pointer z-10 navigation-option"
         >
+          {projectObserver && <div className="tab-underline" />}
           <div className="selector z-1" />
           <h2 className="flex text-2xl font-medium z-5">Projects</h2>
         </button>
@@ -211,6 +253,7 @@ const Navigation = () => {
           className="hidden md:flex justify-center items-center 
           ml-2 cursor-pointer z-10 navigation-option"
         >
+          {techObserver && <div className="tab-underline" />}
           <div className="selector z-1" />
           <h2 className="flex text-2xl font-medium z-5">Tech Stacks</h2>
         </button>

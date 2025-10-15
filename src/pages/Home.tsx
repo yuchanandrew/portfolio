@@ -60,14 +60,7 @@ const Home = () => {
         </section>
 
         {/* Projects Section */}
-        <div
-          id="skills"
-          // style={{
-          //   background:
-          //     "linear-gradient(45deg, var(--color-emerald-400), var(--color-emerald-200))",
-          // }}
-          className="flex flex-col w-full"
-        >
+        <div className="flex flex-col w-full">
           <CardStack />
         </div>
 
@@ -75,8 +68,6 @@ const Home = () => {
         <div className="w-full">
           <MoreInfo />
         </div>
-
-        {/* Projects Section */}
       </div>
     </div>
   );
