@@ -18,7 +18,7 @@ const Footer = () => {
           <Socials />
         </div>
       </div>
-      <div className="absolute top-0 sm:left-0 md:right-0 w-full text-5xl md:text-9xl font-bold text-emerald-500 opacity-30 z-1">
+      <div className="absolute top-0 sm:left-0 md:right-0 w-full text-5xl md:text-9xl font-bold text-emerald-300 opacity-30 z-1">
         a.rho
       </div>
       <div className="absolute bottom-0 left-0 w-full text-emerald-200 text-2xl p-2 z-5">

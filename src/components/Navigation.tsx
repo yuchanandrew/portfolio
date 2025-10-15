@@ -28,6 +28,31 @@ function throttle<T extends (...args: any[]) => any>(
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const navRef = useRef(null);
+
+  {
+    /* CURSOR FOLLOW */
+  }
+
+  useEffect(() => {
+    const navbar: any = navRef.current;
+    if (!navbar) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = navbar?.getBoundingClientRect();
+      const x = e.clientX - rect?.left;
+      const y = e.clientY - rect?.top;
+
+      navbar.style.setProperty("--x", `${x}`);
+      navbar.style.setProperty("--y", `${y}`);
+    };
+
+    navbar.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      navbar.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   {
     /* ANIMATED DROPDOWN */
@@ -141,39 +166,53 @@ const Navigation = () => {
 
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
-      <div className="backdrop-blur-xl backdrop-hue-rotate-15 gap-8 items-center backdrop-saturate-150 bg-white/10 border-white/20 w-[90vw] flex py-4 z-50 mt-4 mb-4 shadow-xl rounded-full">
+      <div ref={navRef} className="navigation">
         <button
           type="button"
           ref={menu}
           aria-label="Toggle site menu"
-          className="ml-4 cursor-pointer transition-all transform hover:scale-105"
+          className="ml-4 cursor-pointer transition-all transform hover:scale-105 z-10"
         >
           <IoIosMenu size={40} />
         </button>
-        <h2 className="flex md:hidden text-3xl font-bold ml-2">Portfolio</h2>
+        <h2 className="flex md:hidden text-2xl font-medium ml-2 z-10">
+          Portfolio
+        </h2>
+
+        {/* Profile */}
         <button
           onClick={goToProfile}
           type="button"
           aria-label="Navigate to profile section"
-          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+          className="hidden md:flex text-2xl justify-center items-center
+          font-medium ml-2 cursor-pointer z-10 navigation-option"
         >
-          Profile
+          <div className="selector z-1" />
+          <h2 className="flex text-2xl font-medium z-5">Profile</h2>
         </button>
+
+        {/* Projects */}
         <button
           onClick={goToSkills}
           type="button"
           aria-label="Navigate to projects section"
-          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+          className="hidden md:flex justify-center items-center 
+          ml-2 cursor-pointer z-10 navigation-option"
         >
-          Projects
+          <div className="selector z-1" />
+          <h2 className="flex text-2xl font-medium z-5">Projects</h2>
         </button>
+
+        {/* Additional Skills */}
         <button
           onClick={goToAdditionalSkills}
           type="button"
           aria-label="Navigate to additional skills section"
-          className="hidden md:flex text-2xl font-bold ml-2 cursor-pointer"
+          className="hidden md:flex justify-center items-center 
+          ml-2 cursor-pointer z-10 navigation-option"
         >
-          Additional Skill
+          <div className="selector z-1" />
+          <h2 className="flex text-2xl font-medium z-5">Additional Skill</h2>
         </button>
       </div>
       {open && (

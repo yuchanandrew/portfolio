@@ -13,7 +13,7 @@ interface Appearance {
 
 const Socials = () => {
   return (
-    <div className="grid grid-cols-3 gap-8 z-2">
+    <div className="grid grid-cols-3 gap-8 z-20">
       <a
         href="https://github.com/yuchanandrew"
         aria-label="Link to my Github page"
