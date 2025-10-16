@@ -152,12 +152,7 @@ const Navigation = () => {
     /***************** OBSERVERS *****************/
   }
 
-  const [showProfile, setShowProfile] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showProjects, setShowProjects] = useState(false);
-  const [showTech, setShowTech] = useState(false);
-
-  function useSectionObserver(id: string, ratio: 0.3) {
+  function useSectionObserver(id: string, ratio: number) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -186,10 +181,10 @@ const Navigation = () => {
     return isVisible;
   }
 
-  const profileObserver = useSectionObserver("profile", 0.3);
-  const aboutObserver = useSectionObserver("about", 0.3);
-  const projectObserver = useSectionObserver("skills", 0.3);
-  const techObserver = useSectionObserver("additional-skills", 0.3);
+  const profileObserver = useSectionObserver("profile", 0.5);
+  const aboutObserver = useSectionObserver("about", 0.5);
+  const projectObserver = useSectionObserver("skills", 0.5);
+  const techObserver = useSectionObserver("additional-skills", 0.5);
 
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center z-50">
@@ -211,12 +206,27 @@ const Navigation = () => {
           onClick={goToProfile}
           type="button"
           aria-label="Navigate to profile section"
-          className="hidden md:flex text-2xl justify-center items-center
-          font-medium ml-2 cursor-pointer z-10 navigation-option"
+          className="hidden relative md:flex text-2xl justify-center items-center
+          font-medium ml-2 cursor-pointer z-10 h-full"
         >
-          {profileObserver && <div className="tab-underline" />}
-          <div className="selector z-1" />
-          <h2 className="flex text-2xl font-medium z-5">Profile</h2>
+          {profileObserver && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: easeInOut }}
+              className="tab-underline"
+            />
+          )}
+          <div className="relative heading-div">
+            <div className="selector z-1" />
+            <motion.h2
+              initial={{ scale: 1 }}
+              animate={profileObserver ? { scale: 1.05 } : { scale: 1 }}
+              className="flex text-2xl font-medium z-5 navigation-option"
+            >
+              <h2 className="z-5">Profile</h2>
+            </motion.h2>
+          </div>
         </button>
 
         {/* About Me */}
@@ -224,12 +234,27 @@ const Navigation = () => {
           onClick={goToAbout}
           type="button"
           aria-label="Navigate to about me section"
-          className="hidden md:flex text-2xl justify-center items-center
-          font-medium ml-2 cursor-pointer z-10 navigation-option"
+          className="hidden relative md:flex text-2xl justify-center items-center
+          font-medium ml-2 cursor-pointer z-10 h-full"
         >
-          {aboutObserver && <div className="tab-underline" />}
-          <div className="selector z-1" />
-          <h2 className="flex text-2xl font-medium z-5">About</h2>
+          {aboutObserver && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: easeInOut }}
+              className="tab-underline"
+            />
+          )}
+          <div className="relative heading-div">
+            <div className="selector z-1" />
+            <motion.h2
+              initial={{ scale: 1 }}
+              animate={aboutObserver ? { scale: 1.05 } : { scale: 1 }}
+              className="flex text-2xl font-medium z-5 navigation-option"
+            >
+              About
+            </motion.h2>
+          </div>
         </button>
 
         {/* Projects */}
@@ -237,12 +262,27 @@ const Navigation = () => {
           onClick={goToSkills}
           type="button"
           aria-label="Navigate to projects section"
-          className="hidden md:flex justify-center items-center 
-          ml-2 cursor-pointer z-10 navigation-option"
+          className="hidden relative md:flex justify-center items-center 
+          ml-2 cursor-pointer z-10 h-full"
         >
-          {projectObserver && <div className="tab-underline" />}
-          <div className="selector z-1" />
-          <h2 className="flex text-2xl font-medium z-5">Projects</h2>
+          {projectObserver && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: easeInOut }}
+              className="tab-underline"
+            />
+          )}
+          <div className="relative heading-div">
+            <div className="selector z-1" />
+            <motion.h2
+              initial={{ scale: 1 }}
+              animate={projectObserver ? { scale: 1.05 } : { scale: 1 }}
+              className="flex text-2xl font-medium z-5 navigation-option"
+            >
+              Projects
+            </motion.h2>
+          </div>
         </button>
 
         {/* Additional Skills */}
@@ -250,13 +290,30 @@ const Navigation = () => {
           onClick={goToTechStacks}
           type="button"
           aria-label="Navigate to tech stacks section"
-          className="hidden md:flex justify-center items-center 
-          ml-2 cursor-pointer z-10 navigation-option"
+          className="hidden relative md:flex justify-center items-center 
+          ml-2 cursor-pointer z-10 h-full"
         >
-          {techObserver && <div className="tab-underline" />}
-          <div className="selector z-1" />
-          <h2 className="flex text-2xl font-medium z-5">Tech Stacks</h2>
+          {techObserver && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: easeInOut }}
+              className="tab-underline"
+            />
+          )}
+          <div className="relative heading-div">
+            <div className="selector z-1" />
+            <motion.h2
+              initial={{ scale: 1 }}
+              animate={techObserver ? { scale: 1.05 } : { scale: 1 }}
+              className="flex text-2xl font-medium z-5 navigation-option"
+            >
+              Tech Stacks
+            </motion.h2>
+          </div>
         </button>
+
+        {/***************** DROPDOWN MENU *****************/}
       </div>
       {open && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-10"></div>
