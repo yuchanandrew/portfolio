@@ -10,7 +10,7 @@ const Dashboard = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/make-post`, {
+      const response = await axios.post(`https://api.andrewrho.dev/make-post`, {
         title,
         image,
         description,

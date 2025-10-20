@@ -8,14 +8,10 @@ dotenv.config();
 
 const app = express();
 
-const redirect_uri = process.env.STATE === "production" 
-    ? "https://api.andrewrho.dev/callback"
-    : "http://127.0.0.1:3000/callback";
+const redirect_uri = "https://api.andrewrho.dev/callback";
 
 app.use(cors({
-    origin: process.env.STATE === "production" 
-        ? 'https://www.andrewrho.dev'
-        : 'http://localhost:5173', // Change for production
+    origin: 'https://www.andrewrho.dev',
     credentials: true,
 }));
 

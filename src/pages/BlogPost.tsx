@@ -40,7 +40,9 @@ const BlogPost = () => {
   const [color, setColor] = useState<string | null>(null);
 
   const fetchPost = async () => {
-    const response = await axios.get(`http://localhost:3000/get-posts/${id}`);
+    const response = await axios.get(
+      `https://api.andrewrho.dev/get-posts/${id}`
+    );
     const result = response.data.post[0];
 
     console.log("response: ", response.data.post[0]);
