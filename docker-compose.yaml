@@ -25,6 +25,13 @@ services:
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
       - "traefik.http.services.backend.loadbalancer.server.port=3000"
+
+      # Add cors middleware
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworigin=https://www.andrewrho.dev"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=GET,POST,PUT,DELETE,OPTIONS"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowcredentials=true"
+      - "traefik.http.routers.backend.middlewares=cors@docker"
     depends_on: # Run if db is in good condition
       db:
         condition: service_healthy
