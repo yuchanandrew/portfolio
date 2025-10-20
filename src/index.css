@@ -399,3 +399,12 @@ body {
     background: linear-gradient(45deg, var(--color-indigo-600), var(--color-sky-300));
     clip-path: polygon(100% 0%, 0% 0%, 50% 0%, 0% 100%);
 } */
+
+
+/* BLOG */
+
+
+/* DASHBOARD */
+.dashboard-field {
+    @apply py-2 bg-slate-200 px-3 w-full rounded-xl focus:border-1;
+}

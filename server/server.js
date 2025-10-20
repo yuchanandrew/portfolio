@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import mysql from "mysql";
+import mysql from "mysql2";
 import * as crypto from "node:crypto";
 
 dotenv.config();
@@ -19,7 +19,15 @@ app.use(cors({
     credentials: true,
 }));
 
-// const pool = mysql;
+const pool = mysql.createPool({
+    // host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
+/************************************************* SECTION 1: FUNCTIONS FOR SPOTIFY API *************************************************/
 
 app.get('/login', async(req, res) => {
     const state = crypto.randomBytes(16).toString('hex');
@@ -116,6 +124,60 @@ app.get("/get-currently-playing", async(req, res) => {
 
         res.send(current_url)
     }
+});
+
+/************************************************* SECTION 2: DATABASE INTEGRATION *************************************************/
+
+// Get ALL posts
+app.get("/get-posts", async(req, res) => {
+    const search_query = `SELECT * FROM posts`;
+
+    const [response] = await pool.query(search_query);
+
+    try {
+        // For testing
+        // console.log("Data: ", response);
+
+        res.status(200).json({message: "Worked!", posts: response});
+    } catch (error) {
+        res.status(500).json({message: "Internal error"});
+    }
+});
+
+// Get a specific post with param (id)
+app.get("/get-posts/:id", async(req, res) => {
+    const {id} = req.params;
+
+    const search_query = `SELECT * FROM posts WHERE id = ?`;
+    const [response] = await pool.query(search_query, [id]);
+    try {
+        // Testing
+        // console.log("Data: ", response);
+
+        res.status(200).json({message: "Worked!", post: response});
+    } catch (error) {
+        res.status(500).json({message: "Internal error"});
+    }
+})
+
+/************************************************* SECTION 3: ADMINISTRATION *************************************************/
+
+app.use(express.json());
+
+// Create a post
+app.post("/make-post", async (req, res) => {
+    const {title, image, description, content} = req.body;
+
+    const insert_query = `INSERT INTO posts (title, image, description, content) VALUES(?, ?, ?, ?)`;
+    await pool.query(insert_query, [title, image, description, content]);
+
+    // For testing:
+    const search_query = `SELECT * FROM posts where title = ?`;
+    const [response] = await pool.query(search_query, [title]);
+
+    console.log("Response: ", response);
+
+    res.status(200).json({ message: "Worked!", post: response[0] });
 });
 
 const PORT = process.env.PORT;

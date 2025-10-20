@@ -224,7 +224,7 @@ const Navigation = () => {
               animate={profileObserver ? { scale: 1.05 } : { scale: 1 }}
               className="flex text-2xl font-medium z-5 navigation-option"
             >
-              <h2 className="z-5">Profile</h2>
+              Profile
             </motion.h2>
           </div>
         </button>
@@ -335,7 +335,7 @@ const Navigation = () => {
               duration: 0.05,
               ease: easeInOut,
             }}
-            className="absolute -top-10 md:top-22 md:left-15 overflow-visible w-full h-[110vh] md:h-[150px] md:w-[40vw] mt-2 z-10
+            className="absolute -top-10 md:top-22 md:left-15 overflow-visible w-full h-[110vh] md:h-[220px] md:w-[40vw] mt-2 z-10
             md:backdrop-blur-2xl rounded-3xl transition-[all_400ms_cubic-bezier(0.030.98,0.52,0.99)_0s] will-change-transform"
           >
             <div className="absolute top-0 py-6 px-4 w-full h-full rounded-3xl z-10 bg-emerald-300 overflow-hidden">
@@ -360,10 +360,16 @@ const Navigation = () => {
                 >
                   Freelance
                 </button>
+                <button
+                  onClick={() => navigate("/blog")}
+                  className="flex text-2xl w-fit rounded-xl px-4 py-2 text-emerald-700 font-medium transform transition-all hover:bg-emerald-700 hover:text-emerald-300 hover:scale-102 hover:translate-x-5 z-5"
+                >
+                  Blog
+                </button>
               </div>
             </div>
             {/* Add dropdown menu here */}
-            <div className="hidden md:flex absolute top-3 -right-3 z-0 bg-black rounded-3xl w-full h-[150px]"></div>
+            <div className="hidden md:flex absolute top-3 -right-3 z-0 bg-black rounded-3xl w-full h-[220px]"></div>
           </motion.div>
         </>
       )}
