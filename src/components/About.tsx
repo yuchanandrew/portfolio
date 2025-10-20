@@ -3,10 +3,7 @@ import Song from "./Song";
 import axios from "axios";
 import FileDownload from "./FileDownload";
 
-const baseURL =
-  import.meta.env.STATE === "production"
-    ? "https://api.andrewrho.dev/get-currently-playing"
-    : "http://localhost:3000/get-currently-playing";
+const baseURL = "https://api1.andrewrho.dev/get-currently-playing";
 
 const About = () => {
   const [track, setTrack] = useState("");

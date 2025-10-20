@@ -8,10 +8,10 @@ dotenv.config();
 
 const app = express();
 
-const redirect_uri = "https://api.andrewrho.dev/callback";
+const redirect_uri = "https://api1.andrewrho.dev/callback";
 
 app.use(cors({
-    origin: 'https://www.andrewrho.dev',
+    origin: 'https://www1.andrewrho.dev',
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
