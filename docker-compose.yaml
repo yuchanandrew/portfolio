@@ -60,6 +60,7 @@ services:
       retries: 10
 
 volumes:
+  mysql_data:
   letsencrypt:
 
 networks:
