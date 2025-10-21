@@ -27,7 +27,7 @@ const BlogSection = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   const fetchAllBlogs = async () => {
-    const response = await axios.get("https://api1.andrewrho.dev/get-posts");
+    const response = await axios.get("https://api2.andrewrho.dev/get-posts");
     const data = response.data.posts;
 
     console.log("Data: ", data);
