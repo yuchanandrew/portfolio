@@ -15,6 +15,8 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./traefik.yml:/traefik.yml:ro"
     restart: unless-stopped
+    networks:
+      - traefik_network
   
   backend:
     build: ./server
@@ -37,6 +39,7 @@ services:
         condition: service_healthy
     networks: # Allow backend and db to communicate securely
       - mysql_network
+      - traefik_network
   
   frontend:
     build:
@@ -48,6 +51,8 @@ services:
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
+    networks:
+      - traefik_network
   
   db: # Added new service for database
     image: mysql:8.0 # The image that docker should use to initialize
@@ -72,3 +77,4 @@ volumes:
 
 networks:
   mysql_network:
+  traefik_network:
