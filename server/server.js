@@ -179,4 +179,4 @@ app.post("/make-post", async (req, res) => {
 });
 
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running`));
