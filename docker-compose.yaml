@@ -29,7 +29,7 @@ services:
       - "traefik.http.services.backend.loadbalancer.server.port=3000"
 
       # Add cors middleware
-      - "traefik.http.middlewares.cors.headers.accessControlAllowOriginList=https://www.andrewrho.dev"
+      - "traefik.http.middlewares.cors.headers.accessControlAllowOriginList=https://www1.andrewrho.dev"
       - "traefik.http.middlewares.cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE,OPTIONS"
       - "traefik.http.middlewares.cors.headers.accessControlAllowHeaders=Content-Type,Authorization"
       - "traefik.http.middlewares.cors.headers.accessControlAllowCredentials=true"
@@ -47,7 +47,7 @@ services:
       dockerfile: Dockerfile.dev
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`www.andrewrho.dev`)"
+      - "traefik.http.routers.frontend.rule=Host(`www1.andrewrho.dev`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
