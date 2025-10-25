@@ -41,7 +41,7 @@ const BlogPost = () => {
 
   const fetchPost = async () => {
     const response = await axios.get(
-      `https://api2.andrewrho.dev/get-posts/${id}`
+      `https://api3.andrewrho.dev/get-posts/${id}`
     );
     const result = response.data.post[0];
 

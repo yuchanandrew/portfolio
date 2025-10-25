@@ -11,7 +11,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `https://api2.andrewrho.dev/make-post`,
+        `https://api3.andrewrho.dev/make-post`,
         {
           title,
           image,
