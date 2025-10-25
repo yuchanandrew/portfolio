@@ -23,7 +23,7 @@ services:
     env_file: ./server/.env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`api.andrewrho.dev`)"
+      - "traefik.http.routers.backend.rule=Host(`api2.andrewrho.dev`)"
       - "traefik.http.routers.backend.entrypoints=websecure"
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
       - "traefik.http.services.backend.loadbalancer.server.port=3000"

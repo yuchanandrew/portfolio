@@ -3,7 +3,7 @@ import Song from "./Song";
 import axios from "axios";
 import FileDownload from "./FileDownload";
 
-const baseURL = "https://api.andrewrho.dev/get-currently-playing";
+const baseURL = "https://api2.andrewrho.dev/get-currently-playing";
 
 const About = () => {
   const [track, setTrack] = useState("");
