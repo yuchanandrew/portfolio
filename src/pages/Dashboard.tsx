@@ -10,15 +10,12 @@ const Dashboard = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `https://api2.andrewrho.dev/make-post`,
-        {
-          title,
-          image,
-          description,
-          content,
-        }
-      );
+      const response = await axios.post(`https://api.andrewrho.dev/make-post`, {
+        title,
+        image,
+        description,
+        content,
+      });
 
       const data = response.data.message;
 
