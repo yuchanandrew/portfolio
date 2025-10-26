@@ -28,6 +28,9 @@ services:
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
       - "traefik.http.services.backend.loadbalancer.server.port=3000"
 
+      # Tell Traefik which network traffic should be directed on
+      - "traefik.docker.network=traefik_network"
+
       # Add cors middleware
       - "traefik.http.middlewares.cors.headers.accessControlAllowOriginList=https://www2.andrewrho.dev"
       - "traefik.http.middlewares.cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE,OPTIONS"
