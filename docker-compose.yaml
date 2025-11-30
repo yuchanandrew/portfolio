@@ -66,7 +66,6 @@ services:
       - .env
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./db/init:/docker-entrypoint-initdb.d
     networks: # Access the secure mysql_network
       - mysql_network
     healthcheck: # Prevent early connection failure
